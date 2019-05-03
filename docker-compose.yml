@@ -1,0 +1,7 @@
+version: "2"
+services:
+  app:
+    build: .
+    image: gennyproject/recommender:latest
+    ports:
+      - "5656:5000"
