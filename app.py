@@ -49,7 +49,7 @@ def scoring():
 	    'Authorization': 'Bearer '+ auth_token,
 	}
 
-	response_X = requests.post('http://keycloak.genny.life:8280/qwanda/baseentitys/search', headers=headers, data=json.dumps(base_Entity_X[0]))
+	response_X = requests.post('http://keycloak.genny.life:8280/qwanda/baseentitys/search', headers=headers, data=json.dumps(base_Entity_X))
 	df_X = response_X.json()['items']
 	df_X = json_normalize(df_X,record_path='baseEntityAttributes')
 	df_X = df_X[['attributeCode','baseEntityCode','valueString']]
@@ -63,7 +63,7 @@ def scoring():
 
 
 	#Getting Base Entity Y Details
-	response_Y = requests.post('http://keycloak.genny.life:8280/qwanda/baseentitys/search', headers=headers, data=json.dumps(base_Entity_Y[0]))
+	response_Y = requests.post('http://keycloak.genny.life:8280/qwanda/baseentitys/search', headers=headers, data=json.dumps(base_Entity_Y))
 
 	df_Y = response_Y.json()['items']
 	df_Y = json_normalize(df_Y,record_path='baseEntityAttributes')
